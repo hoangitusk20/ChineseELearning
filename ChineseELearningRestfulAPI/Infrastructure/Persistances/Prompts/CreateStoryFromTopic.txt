@@ -1,0 +1,35 @@
+﻿请创建一个题为"{Topic}"的故事。故事应符合{HSKLevel}水平，长度约{WordCount}字。请使用纯 JSON格式返回，不要添加任何额外的格式标记如```或\n，格式如下：
+
+{
+  "story": "故事内容（仅用中文书写，不包含拼音。专有名词必须翻译成中文）",
+  "meaning": "故事的越南语翻译（仅用越南语，不含奇怪字符）",
+  "vocabulary": {
+    "{HSKLevel}级词汇1": "越南语含义",
+    "{HSKLevel}级词汇2": "越南语含义",
+    ...
+  },
+  "grammar": {
+    "语法点1": "越南语解释 + 例句",
+    "语法点2": "越南语解释 + 例句",
+    ...
+  }
+}
+
+例如：
+{
+  "story": "今天小强起得很早。他六点半就醒了，因为他有一场重要的考试。他迅速地洗漱，然后吃了一顿营养丰富的早餐。吃完早饭后，他检查了一下书包，确保所有的学习资料都带齐了。他的父母祝他考试顺利，然后他就出门了。在路上，小强遇到了他的好朋友小李。他们一起走路去学校，讨论着考试内容。小强虽然有点紧张，但他相信自己的复习是充分的。到达教室后，他深呼一口气，准备迎接挑战。",
+  "meaning": "Hôm nay Tiểu Cường dậy rất sớm. Cậu ấy thức dậy lúc 6:30 vì có một bài kiểm tra quan trọng. Cậu ấy nhanh chóng rửa mặt, sau đó ăn một bữa sáng đầy đủ chất dinh dưỡng. Sau khi ăn xong, cậu ấy kiểm tra cặp sách, đảm bảo đã mang đầy đủ tài liệu học tập. Bố mẹ cậu chúc cậu may mắn trong kỳ thi, sau đó cậu rời nhà. Trên đường đi, Tiểu Cường gặp người bạn thân Tiểu Lý. Họ cùng nhau đi bộ đến trường, thảo luận về nội dung bài kiểm tra. Mặc dù hơi lo lắng, nhưng Tiểu Cường tin rằng mình đã ôn tập đầy đủ. Sau khi đến lớp học, cậu ấy hít một hơi sâu, chuẩn bị đón nhận thử thách.",
+  "vocabulary": {
+    "迅速": "nhanh chóng, mau lẹ",
+    "营养丰富": "giàu dinh dưỡng",
+    "检查": "kiểm tra",
+    "确保": "đảm bảo",
+    "紧张": "căng thẳng, lo lắng"
+  },
+  "grammar": {
+    "虽然...但是...": "Cấu trúc biểu thị nhượng bộ 'mặc dù... nhưng...'. Ví dụ: 虽然天气不好，但是我们还是去了公园 (Mặc dù thời tiết không tốt, nhưng chúng tôi vẫn đi công viên).",
+    "就": "Trợ từ biểu thị sự sớm/nhanh chóng. Ví dụ: 他七点就到了 (Anh ấy đã đến lúc 7 giờ rồi)."
+  }
+}
+
+重要: 请只返回纯JSON数据，不要添加任何格式标记(如```json、\n等)或其他任何文本。"story"和"meaning"部分应为纯文本，不需要\n或其他格式标记。"story"部分只用中文书写，不含拼音；"meaning"部分只用越南语，不含拼音和汉字。

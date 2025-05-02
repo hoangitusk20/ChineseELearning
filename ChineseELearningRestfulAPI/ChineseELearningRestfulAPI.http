@@ -1,0 +1,6 @@
+@ChineseELearningRestfulAPI_HostAddress = http://localhost:5054
+
+GET {{ChineseELearningRestfulAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
