@@ -11,6 +11,7 @@ export const fetchAllVocabThunk = createAsyncThunk(
   "vocabulary/fetchAllVocab",
   async ({ listId, page, pageSize }, { getState, rejectWithValue }) => {
     try {
+      console.log("ListId: " + listId);
       const state = getState();
       const accessToken =
         state.auth.accessToken || localStorage.getItem("accessToken");
@@ -129,14 +130,14 @@ const vocabularySlice = createSlice({
       .addCase(updateVocabularyThunk.pending, (state) => {
         state.loading = true;
       })
-      .addCase(updateVocabulary.fulfilled, (state, action) => {
+      .addCase(updateVocabularyThunk.fulfilled, (state, action) => {
         const updated = action.payload;
         const index = state.items.findIndex((item) => item.id === updated.id);
         if (index !== -1) {
           state.items[index] = updated;
         }
       })
-      .addCase(createVocabularyThunk.rejected, (state, action) => {
+      .addCase(updateVocabularyThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload; // Lỗi nếu có
       })

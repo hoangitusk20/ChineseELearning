@@ -23,13 +23,14 @@ export const createVocabulary = async (
   }
 };
 
-export const getAllVocabularyInPage = async ({
+export const getAllVocabularyInPage = async (
   accessToken,
   page,
   pageSize,
-  listId,
-}) => {
+  listId
+) => {
   try {
+    console.log("List Id from service: " + listId);
     const response = await axios.get(
       `${API_URL}vocabulary-lists/${listId}/vocabularies`,
       {

@@ -1,12 +1,14 @@
 // src/shared/store.js
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
-import VocabularyListSlice from "./slices/vocabularyListSlice";
+import VocabularyListReducer from "./slices/vocabularyListSlice";
+import VocabularyReducer from "./slices/VocabularySlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    vocabularyList: VocabularyListSlice,
+    vocabularyList: VocabularyListReducer,
+    vocabulary: VocabularyReducer,
   },
 });
 
