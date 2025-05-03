@@ -1,14 +1,8 @@
 // APIKeyBox.tsx
 import React from "react";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/components/ui/select";
+
 import { Button } from "@/shared/components/ui/button";
-import { useAPIKeyForm } from "./hooks/useAPIKeyBoxHandle";
+import { useAPIKeyForm } from "../hooks/useAPIKeyBoxHandle";
 import SelectProvider from "@/shared/components/SelectProvider";
 const APIKeyBox = () => {
   const {

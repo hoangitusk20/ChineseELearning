@@ -9,7 +9,7 @@ export const generateStoryFromTopic = async (
 ) => {
   try {
     const response = await axios.post(
-      `${API_URL}GenerateFromTopic/${provider}`,
+      `${API_URL}generate-from-topic/${provider}`,
       { content, hskLevel, wordCount },
       {
         headers: {

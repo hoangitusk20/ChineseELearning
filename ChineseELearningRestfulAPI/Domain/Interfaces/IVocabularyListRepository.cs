@@ -9,5 +9,7 @@ namespace ChineseELearningRestfulAPI.Domain.Interfaces
         Task<VocabularyList> CreateVocabularyListAsync(VocabularyList vocabularyList);
         Task<VocabularyList?> UpdateVocabularyListAsync(VocabularyList vocabularyList);
         Task<bool> DeleteVocabularyListAsync(Guid id);
+
+        Task<int> GetTotalVocabularyCountByListIdAsync(Guid id);
     }
 }

@@ -3,7 +3,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const getUserAPIKey = async (accessToken) => {
   try {
-    const response = await axios.get(`${API_URL}APIKey`, {
+    const response = await axios.get(`${API_URL}api-keys`, {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -18,7 +18,7 @@ export const getUserAPIKey = async (accessToken) => {
 export const createAPIKey = async (accessToken, { key, serviceName }) => {
   try {
     const response = await axios.post(
-      `${API_URL}APIKey`,
+      `${API_URL}api-keys`,
       { key, serviceName },
       {
         headers: { Authorization: `Bearer ${accessToken}` },
@@ -33,7 +33,7 @@ export const createAPIKey = async (accessToken, { key, serviceName }) => {
 
 export const deleteAPIKey = async (accessToken, keyId) => {
   try {
-    const response = await axios.delete(`${API_URL}APIKey/${keyId}`, {
+    const response = await axios.delete(`${API_URL}api-keys/${keyId}`, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response;

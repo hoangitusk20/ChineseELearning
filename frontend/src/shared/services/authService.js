@@ -7,7 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 export const login = async (credentials, dispatch) => {
   try {
-    const response = await axios.post(`${API_URL}Auth/login`, credentials);
+    const response = await axios.post(`${API_URL}auth/login`, credentials);
     const { token, user } = response.data;
     // Lưu token vào localStorage
     localStorage.setItem("accessToken", token);

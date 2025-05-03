@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BookOpen } from "lucide-react";
 import { useSelector } from "react-redux";
 
-import InputBox from "./InputBox";
-import Story from "./Story/Story";
-import Grammar from "./Grammar";
-import Vocabulary from "./Vocabulary";
+import InputBox from "./Component/InputBox";
+import Story from "./Component/Story/Story";
+import Grammar from "./Component/Grammar";
+import Vocabulary from "./Component/Vocabulary";
 import { generateStoryFromTopic } from "@/shared/services/GenerateStory";
 import ChineseWithPinyin from "@/shared/components/ChineseWithPinyin";
 
@@ -27,10 +27,10 @@ const LearnByTopicPage = () => {
         provider
       );
       console.log("response", response);
-      setStory(response.response.story);
-      setVocabulary(response.response.vocabulary);
-      setGrammar(response.response.grammar);
-      setMeaning(response.response.meaning);
+      setStory(response.story);
+      setVocabulary(response.vocabulary);
+      setGrammar(response.grammar);
+      setMeaning(response.meaning);
     } catch (error) {
       if (error?.response?.data?.errors?.provider) {
         alert(

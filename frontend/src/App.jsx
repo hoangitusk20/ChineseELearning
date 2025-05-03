@@ -7,11 +7,11 @@ import store from "./shared/store";
 import { Provider } from "react-redux";
 import RegisterPage from "./features/Auth/RegisterPage";
 import LearnByTopicPage from "./features/LearnByTopic/LearnByTopicPage";
-import LearnByVocabPage from "./features/LearnByVocab/LearnByVocabPage";
 import LearnWritingPage from "./features/LearnWriting/LearnWritingPage";
 import MaterialsPage from "./features/Materials/MaterialsPage";
 import PrivateRoute from "./shared/components/PrivateRoute";
 import ProfilePage from "./features/Profile/ProfilePage";
+import LearnVocabPage from "./features/LearnVocab/LearnVocabPage";
 
 function App() {
   return (
@@ -34,10 +34,10 @@ function App() {
               }
             />
             <Route
-              path="/create-story-from-vocabulary"
+              path="/pratice-vocabulary"
               element={
                 <PrivateRoute>
-                  <LearnByVocabPage />
+                  <LearnVocabPage />
                 </PrivateRoute>
               }
             />

@@ -47,8 +47,8 @@ export const useAPIKeyForm = () => {
     } catch (error) {
       console.error("Error creating API key:", error);
       if (
-        error.response?.data?.errors?.request?.includes(
-          "The request field is required."
+        error.response?.data?.errors?.DTO?.includes(
+          "The DTO field is required."
         )
       )
         alert("Chúng tôi chưa hỗ trợ sử dụng API Key cho dịch vụ này");

@@ -16,7 +16,7 @@ const features = [
   },
   {
     id: 2,
-    to: "/create-story-from-vocabulary",
+    to: "/pratice-vocabulary",
     icon: Bookmark,
     title: "Tạo câu chuyện từ từ vựng",
     detailDescription:

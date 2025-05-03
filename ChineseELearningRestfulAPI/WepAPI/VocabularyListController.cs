@@ -106,7 +106,7 @@ namespace ChineseELearningRestfulAPI.WepAPI
             try
             {
                 await _deleteVocabularyList.ExecuteAsync(id);
-                return Ok(new { message = "Delete Vocabulary list successfully" });
+                return Ok(new { message = "Delete Vocabulary list successfully" , id=id});
             }
             catch (Exception ex)
             {

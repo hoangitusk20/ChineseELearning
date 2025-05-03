@@ -8,6 +8,7 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.VocabularyLists
         public string Description { get; set; }
 
         public DateTime CreatedAt { get; set; }
+        //public int Count { get; set; }
 
         public VocabularyListDTO(VocabularyList createdList)
         {
@@ -15,6 +16,7 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.VocabularyLists
             Name = createdList.Name;
             Description = createdList.Description;
             CreatedAt = createdList.CreatedAt;
+            //Count = vocabularyCount;
         }
         public Guid Id { get; set; }
     }

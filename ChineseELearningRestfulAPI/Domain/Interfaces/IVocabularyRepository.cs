@@ -10,6 +10,8 @@ namespace ChineseELearningRestfulAPI.Domain.Interfaces
         Task<bool> UpdateVocabularyAsync(Vocabulary vocabulary);
         Task<bool> DeleteVocabularyAsync(Guid id);
 
+        
+
 
     }
 }

@@ -16,7 +16,12 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.VocabularyLists.GetAll
             var vocabularyLists = await _vocabularyListRepository.GetAllVocabularyListsAsync(userId);
             if (vocabularyLists == null || vocabularyLists.Count == 0)
                 return [];
+
+
+
+            //return vocabularyLists.Select(v => new VocabularyListDTO(v, v.Vocabularies?.Count ?? 0)).ToList();
             return vocabularyLists.Select(v => new VocabularyListDTO(v)).ToList();
+
         }
     }
 }

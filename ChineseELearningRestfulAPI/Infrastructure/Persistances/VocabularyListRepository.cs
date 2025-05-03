@@ -71,6 +71,22 @@ namespace ChineseELearningRestfulAPI.Infrastructure.Persistances
             }
         }
 
+        public async Task<int> GetTotalVocabularyCountByListIdAsync(Guid id)
+        {
+            try
+            {
+                return await _dbContext.Vocabularies
+                    .Where(v => v.VocabularyListId == id)
+                    .CountAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi đếm từ vựng: {ex.Message}");
+                throw new Exception($"Error when counting vocabularies for list {id}: {ex.Message}", ex);
+            }
+        }
+
+
         // Lấy VocabularyList mà KHÔNG include Vocabularies
         public async Task<VocabularyList> GetVocabularyListByIdAsync(Guid id, bool includeVocabularies = false)
         {

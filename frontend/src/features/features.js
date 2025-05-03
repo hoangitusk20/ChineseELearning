@@ -1,12 +1,12 @@
 const features = [
   {
     to: "/create-story-from-topic",
-    title: "Theo chủ đề",
+    title: "Tạo câu chuyện",
     requireAuth: true,
   },
   {
-    to: "/create-story-from-vocabulary",
-    title: "Theo từ vựng",
+    to: "/pratice-vocabulary",
+    title: "Luyện từ vựng",
     requireAuth: true,
   },
   {

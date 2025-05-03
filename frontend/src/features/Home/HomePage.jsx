@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Banner from "./Banner";
-import Features from "./FeaturesSection/Features";
-import HomeFeatuers from "./HomeFeatures";
+import Banner from "./Component/Banner";
+import Features from "./Component/FeaturesSection/Features";
+import HomeFeatuers from "./Component/FeaturesSection/HomeFeatures";
 
 const HomePage = () => {
   const [activeFeature, setActiveFeature] = useState(HomeFeatuers[0]);

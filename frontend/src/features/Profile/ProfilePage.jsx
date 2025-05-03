@@ -1,5 +1,5 @@
 import React from "react";
-import APIKeyBox from "./APIKeyBox/APIKeyBox";
+import APIKeyBox from "./Component/APIKeyBox";
 
 const ProfilePage = () => {
   return (

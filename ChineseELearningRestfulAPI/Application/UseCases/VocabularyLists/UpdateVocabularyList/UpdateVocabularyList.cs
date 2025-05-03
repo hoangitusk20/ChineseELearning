@@ -25,6 +25,7 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.VocabularyLists.Update
             {
                 throw new Exception("Failed to update vocabulary list");
             }
+            //return new VocabularyListDTO(result, result.Vocabularies?.Count ?? 0);
             return new VocabularyListDTO(result);
         }
     }
