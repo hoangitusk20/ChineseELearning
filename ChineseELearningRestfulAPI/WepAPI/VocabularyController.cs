@@ -84,7 +84,7 @@ namespace ChineseELearningRestfulAPI.WepAPI
             try
             {
                 var vocabulary = await _updateVocabulary.ExecuteAsync(id, request);
-                return Ok(new { message = "Updated successfully" });
+                return Ok(vocabulary);
             }
             catch (Exception ex)
             {

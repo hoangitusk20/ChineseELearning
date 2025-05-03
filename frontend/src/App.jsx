@@ -12,12 +12,15 @@ import MaterialsPage from "./features/Materials/MaterialsPage";
 import PrivateRoute from "./shared/components/PrivateRoute";
 import ProfilePage from "./features/Profile/ProfilePage";
 import LearnVocabPage from "./features/LearnVocab/LearnVocabPage";
+import VocabularyPage from "./features/LearnVocab/VocabularyPage";
+import NotFoundPage from "./shared/NotFoundPage";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/404" element={<NotFoundPage />} />
           <Route element={<AuthLayout />}>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
@@ -38,6 +41,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <LearnVocabPage />
+                </PrivateRoute>
+              }
+            ></Route>
+            <Route
+              path="/pratice-vocabulary/:id"
+              element={
+                <PrivateRoute>
+                  <VocabularyPage />
                 </PrivateRoute>
               }
             />

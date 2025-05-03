@@ -100,19 +100,19 @@ namespace ChineseELearningRestfulAPI.Infrastructure.Persistances
             }
         }
 
-        public async Task<bool> UpdateVocabularyAsync(Vocabulary vocabulary)
+        public async Task<Vocabulary> UpdateVocabularyAsync(Vocabulary vocabulary)
         {
             try
             {
                 var existingVocabulary = await _dbContext.Vocabularies.FindAsync(vocabulary.Id);
                 if (existingVocabulary == null)
-                    return false;
+                    throw new KeyNotFoundException($"Cannot find vocabulary with Id {vocabulary.Id}");
                 existingVocabulary.Word = vocabulary.Word;
                 existingVocabulary.Definition = vocabulary.Definition;
                 existingVocabulary.UpdatedAt = DateTime.UtcNow;
                 _dbContext.Vocabularies.Update(existingVocabulary);
                 await _dbContext.SaveChangesAsync();
-                return true;
+                return existingVocabulary;
             }
             catch (Exception ex)
             {

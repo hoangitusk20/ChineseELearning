@@ -11,7 +11,7 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.Vocabularies.UpdateVoc
             _vocabularyRepository = vocabularyRepository;
         }
 
-        public async Task<bool> ExecuteAsync(Guid id, UpdateVocabularyRequestDTO dto)
+        public async Task<VocabularyDTO> ExecuteAsync(Guid id, UpdateVocabularyRequestDTO dto)
         {
             var newVocabulary = new Vocabulary
             {
@@ -23,12 +23,9 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.Vocabularies.UpdateVoc
 
             var result = await _vocabularyRepository.UpdateVocabularyAsync(newVocabulary);
 
-            if (!result)
-            {
-                throw new Exception("Failed to update vocabulary");
-            }
+      
 
-            return result;
+            return new VocabularyDTO(result);
         }
 
     }

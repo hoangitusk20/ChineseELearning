@@ -2,6 +2,6 @@
 {
     public interface IUpdateVocabulary
     {
-        Task<bool> ExecuteAsync(Guid id, UpdateVocabularyRequestDTO dto);
+        Task<VocabularyDTO> ExecuteAsync(Guid id, UpdateVocabularyRequestDTO dto);
     }
 }

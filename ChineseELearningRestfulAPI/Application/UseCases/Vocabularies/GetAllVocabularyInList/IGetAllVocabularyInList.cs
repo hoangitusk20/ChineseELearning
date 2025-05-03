@@ -2,6 +2,6 @@
 {
     public interface IGetAllVocabularyInList
     {
-        Task<List<VocabularyDTO>> ExecuteAsync(Guid listId, int page = 1, int pageSize = 20);
+        Task<GetVocabularyInListReponseDTO> ExecuteAsync(Guid listId, int page = 1, int pageSize = 20);
     }
 }

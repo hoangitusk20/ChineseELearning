@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Pencil, Trash2, Check, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -29,7 +30,10 @@ const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
   };
 
   return (
-    <div className="bg-white shadow-md rounded-lg p-4 flex flex-col">
+    <Link
+      to={"/pratice-vocabulary/" + vocabulary.id}
+      className="bg-white shadow-md rounded-lg p-4 flex flex-col"
+    >
       <div className="flex justify-between items-start">
         <div className="flex-1">
           {isEditing ? (
@@ -104,7 +108,7 @@ const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
       <p className="text-gray-500 text-sm mt-2">
         Ngày tạo: {new Date(vocabulary.createdAt).toLocaleDateString()}
       </p>
-    </div>
+    </Link>
   );
 };
 
