@@ -1,7 +1,12 @@
 import React from "react";
+import AddVocabModal from "./components/AddVocabModal";
 
 const DemoPage = () => {
-  return <div>DemoPage</div>;
+  return (
+    <div>
+      <AddVocabModal word={"Hello"} />
+    </div>
+  );
 };
 
 export default DemoPage;

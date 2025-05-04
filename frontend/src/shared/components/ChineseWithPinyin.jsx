@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { pinyin } from "pinyin-pro";
-import { Volume2 } from "lucide-react";
+import { CirclePlus, Volume2 } from "lucide-react";
+import AddVocabModal from "./AddVocabModal";
 
 const ChineseWithPinyin = ({
   text,
@@ -9,9 +10,12 @@ const ChineseWithPinyin = ({
   showReadCharButton = true, // Hiển thị nút đọc từng chữ
   showReadFullTextButton = true, // Hiển thị nút đọc nguyên văn bản
   fullTextButtonLabel = "Đọc toàn bộ", // Label cho nút đọc nguyên văn bản
+  showAddToList = true,
 }) => {
   const [elements, setElements] = useState([]);
   const [activeChar, setActiveChar] = useState(null);
+  const [ModalState, setModalState] = useState(false);
+  const [currentChar, setCurrentChar] = useState(null);
   const popupRef = useRef(null);
 
   const isChinese = (char) => /[\u4e00-\u9fa5]/.test(char);
@@ -89,7 +93,7 @@ const ChineseWithPinyin = ({
 
                 {showReadFullTextButton && text.length > 1 && (
                   <button
-                    className="flex items-center gap-2 w-full hover:bg-gray-100 px-2 py-1 rounded"
+                    className="flex items-center gap-2 w-full hover:bg-gray-100 px-2 py-1 rounded mb-1"
                     onClick={(e) => {
                       e.stopPropagation();
                       speakText(text);
@@ -98,6 +102,20 @@ const ChineseWithPinyin = ({
                   >
                     <Volume2 size={14} />
                     <span className="text-xs">{fullTextButtonLabel}</span>
+                  </button>
+                )}
+                {showAddToList && (
+                  <button
+                    className="flex items-center gap-2 w-full hover:bg-gray-100 px-2 py-1 rounded"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setModalState(true);
+                      setActiveChar(null);
+                      setCurrentChar(char);
+                    }}
+                  >
+                    <CirclePlus size={14} />
+                    <span className="text-xs">Thêm từ</span>
                   </button>
                 )}
               </div>
@@ -117,9 +135,19 @@ const ChineseWithPinyin = ({
     showReadCharButton,
     showReadFullTextButton,
     fullTextButtonLabel,
+    showAddToList,
   ]);
 
-  return <div className={className}>{elements}</div>;
+  return (
+    <div className={className}>
+      {elements}
+      <AddVocabModal
+        word={currentChar}
+        ModalState={ModalState}
+        setModalState={setModalState}
+      />
+    </div>
+  );
 };
 
 export default ChineseWithPinyin;

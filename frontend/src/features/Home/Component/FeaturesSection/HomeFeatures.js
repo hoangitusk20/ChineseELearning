@@ -18,14 +18,14 @@ const features = [
     id: 2,
     to: "/pratice-vocabulary",
     icon: Bookmark,
-    title: "Tạo câu chuyện từ từ vựng",
+    title: "Luyện tập từ vựng",
     detailDescription:
-      "Bạn có một danh sách từ vựng mà bạn muốn học? Hãy để tôi giúp bạn! Chỉ cần nhập danh sách từ vựng đó vào ô bên dưới, và tôi sẽ tạo ra một câu chuyện thú vị sử dụng những từ vựng đó. Bạn sẽ không chỉ học được cách sử dụng từ vựng trong ngữ cảnh mà còn có thể nhớ chúng lâu hơn. Hãy thử ngay nhé!",
+      "Trong suốt hành trình học tập đầy ly kỳ cùng những câu chuyện của chúng tôi, bạn sẽ vô tình (hoặc cố tình) nhặt được hàng loạt từ vựng mới lạ. Và thay vì để chúng trôi vào quên lãng như mấy cuộc hội thoại nhóm không ai đọc, chúng tôi đã tạo ra nơi trú ngụ an toàn cho tất cả — một 'kho báu từ vựng' nơi mỗi từ đều được chăm sóc, ghi nhớ, và sẵn sàng tái xuất khi bạn cần! Học mà vui, lưu mà chất!",
     description:
-      "Nhập danh sách từ vựng bạn muốn học, AI sẽ tạo ra một câu chuyện hấp dẫn sử dụng các từ vựng đó.",
+      "Nơi lưu giữ các từ vựng mà bạn đã lưu trong quá trình học bằng các câu chuyện của chúng tôi",
     color: "border-green-500",
     image:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      "https://trungtamtiengtrung.edu.vn/uploads/blog/2022_11/xin-chao-tieng-trung.jpg",
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ const features = [
       "Luyện viết chữ Hán với hướng dẫn chi tiết về thứ tự nét, phát âm và ý nghĩa của từng chữ.",
     color: "border-red-500",
     image:
-      "https://images.unsplash.com/photo-1516383740770-fbcc5ccbece0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      "https://bizweb.dktcdn.net/100/382/370/files/cach-viet-tieng-trung-quoc-cc556862-d4c4-416d-b024-530e602cb840.jpg?v=1633842172349",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const features = [
       "Truy cập kho tài liệu phong phú bao gồm sách, bài giảng, video và các tài nguyên học tập khác.",
     color: "border-indigo-500",
     image:
-      "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+      "https://sanako.com/wp-content/uploads/2021/02/illustration-showing-foreign-language-learning-workbook-scaled.webp",
   },
 ];
 

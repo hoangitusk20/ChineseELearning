@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Pencil, Trash2, Check, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedName, setEditedName] = useState(vocabulary.name);
+  const navigate = useNavigate();
   const [editedDescription, setEditedDescription] = useState(
     vocabulary.description
   );
@@ -28,10 +29,15 @@ const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
     setEditedName(vocabulary.name);
     setEditedDescription(vocabulary.description);
   };
+  const handleCardClick = () => {
+    if (!isEditing) {
+      navigate(`/pratice-vocabulary/${vocabulary.id}`);
+    }
+  };
 
   return (
-    <Link
-      to={"/pratice-vocabulary/" + vocabulary.id}
+    <div
+      onClick={handleCardClick}
       className="bg-white shadow-md rounded-lg p-4 flex flex-col"
     >
       <div className="flex justify-between items-start">
@@ -81,14 +87,18 @@ const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
           ) : (
             <>
               <button
-                onClick={() => setIsEditing(true)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsEditing(true);
+                }}
                 className="p-2 text-blue-500 hover:text-blue-700 transition-colors"
                 title="Chỉnh sửa"
               >
                 <Pencil size={18} />
               </button>
               <button
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   const confirmDelete = window.confirm(
                     "Bạn có chắc chắn muốn xóa phần list này"
                   );
@@ -108,7 +118,7 @@ const ListBox = ({ vocabulary, handleEdit, handleDelete }) => {
       <p className="text-gray-500 text-sm mt-2">
         Ngày tạo: {new Date(vocabulary.createdAt).toLocaleDateString()}
       </p>
-    </Link>
+    </div>
   );
 };
 

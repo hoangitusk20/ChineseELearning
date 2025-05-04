@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Plus } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
-const AddVocabularyForm = ({ onAdd }) => {
+const AddVocabularyForm = ({ onAdd, className, word }) => {
   const [formData, setFormData] = useState({
-    word: "",
+    word: word,
     definition: "",
     example: "",
   });
@@ -27,13 +28,13 @@ const AddVocabularyForm = ({ onAdd }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-6">
+    <div className="bg-white p-4 mb-2">
       <h2 className="text-xl font-bold mb-4 text-gray-800 flex items-center">
         <Plus className="w-5 h-5 mr-2" />
         Thêm Từ Vựng Mới
       </h2>
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className={twMerge(`grid grid-cols-1 gap-4 `, className)}>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Từ mới
@@ -78,7 +79,7 @@ const AddVocabularyForm = ({ onAdd }) => {
         <div className="mt-4 flex justify-end">
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:cursor-pointer hover:bg-blue-500 transition-colors flex items-center"
+            className="px-4 py-2 bg-blue-600 text-sm text-white rounded-md hover:cursor-pointer hover:bg-blue-500 transition-colors flex items-center"
           >
             <Plus className="w-4 h-4 mr-1" />
             Thêm từ
