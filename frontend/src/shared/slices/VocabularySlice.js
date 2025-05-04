@@ -31,7 +31,7 @@ export const fetchAllVocabThunk = createAsyncThunk(
 export const createVocabularyThunk = createAsyncThunk(
   "vocabulary/createVocabulary",
   async (
-    { listId, word, defenition, example },
+    { listId, word, definition, example },
     { getState, rejectWithValue }
   ) => {
     try {
@@ -41,7 +41,7 @@ export const createVocabularyThunk = createAsyncThunk(
       const data = await createVocabulary(accessToken, {
         listId,
         word,
-        defenition,
+        definition,
         example,
       });
       return data;

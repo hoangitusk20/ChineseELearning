@@ -18,13 +18,11 @@ const AddVocabularyForm = ({ onAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.word && formData.definition) {
-      onAdd({
-        ...formData,
-        id: Math.random().toString(36).substring(2, 15),
-        createdAt: new Date().toISOString(),
-        updatedAt: "0001-01-01T00:00:00",
-      });
+      console.log(formData);
+      onAdd(formData);
       setFormData({ word: "", definition: "", example: "" });
+    } else {
+      alert("Vui lòng điền đầy đủ thông tin");
     }
   };
 
