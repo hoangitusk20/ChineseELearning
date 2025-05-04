@@ -18,7 +18,7 @@ const VocabularyCard = ({ vocabulary, onEdit, onDelete }) => {
   };
 
   const handleSave = () => {
-    onEdit(vocabulary.id, editData);
+    onEdit({ id: vocabulary.id, ...editData });
     setIsEditing(false);
   };
 

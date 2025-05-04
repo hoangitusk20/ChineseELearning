@@ -109,6 +109,7 @@ namespace ChineseELearningRestfulAPI.Infrastructure.Persistances
                     throw new KeyNotFoundException($"Cannot find vocabulary with Id {vocabulary.Id}");
                 existingVocabulary.Word = vocabulary.Word;
                 existingVocabulary.Definition = vocabulary.Definition;
+                existingVocabulary.Example = vocabulary.Example;
                 existingVocabulary.UpdatedAt = DateTime.UtcNow;
                 _dbContext.Vocabularies.Update(existingVocabulary);
                 await _dbContext.SaveChangesAsync();

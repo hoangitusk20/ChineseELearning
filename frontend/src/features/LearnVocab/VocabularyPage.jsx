@@ -3,6 +3,7 @@ import {
   createVocabularyThunk,
   deleteVocabularyThunk,
   fetchAllVocabThunk,
+  updateVocabularyThunk,
 } from "@/shared/slices/VocabularySlice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,14 +29,13 @@ const VocabularyPage = () => {
 
   const {
     currentPageVocabulary: currentVocabularies,
-    loading,
-    totalVocabulary,
+    // loading,
+    totalVocabulary: totalCount,
   } = useSelector((state) => state.vocabulary);
 
   // Tính toán số trang
 
   // const [totalCount, setTotalCount] = useState(mockVocabularyData.totalCount);
-  const [totalCount, setTotalCount] = useState(totalVocabulary);
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(totalCount / pageSize);
@@ -53,22 +53,22 @@ const VocabularyPage = () => {
   }, [dispatch, listId, currentPage]);
 
   // Thêm từ vựng mới
-  const handleAddVocabulary = (formData) => {
-    dispatch(createVocabularyThunk({ listId, ...formData }));
-    if (!loading) {
-      dispatch(fetchAllVocabThunk({ listId, currentPage, pageSize }));
-    }
+  const handleAddVocabulary = async (formData) => {
+    await dispatch(createVocabularyThunk({ listId, ...formData }));
+
+    dispatch(fetchAllVocabThunk({ listId, currentPage, pageSize }));
   };
 
   // Cập nhật từ vựng
-  const handleEditVocabulary = (id, updatedData) => {};
+  const handleEditVocabulary = (updatedData) => {
+    dispatch(updateVocabularyThunk({ listId, ...updatedData }));
+  };
 
   // Xóa từ vựng
-  const handleDeleteVocabulary = (id) => {
-    dispatch(deleteVocabularyThunk({ listId, id }));
-    if (!loading) {
-      dispatch(fetchAllVocabThunk({ listId, currentPage, pageSize }));
-    }
+  const handleDeleteVocabulary = async (id) => {
+    await dispatch(deleteVocabularyThunk({ listId, id }));
+
+    dispatch(fetchAllVocabThunk({ listId, currentPage, pageSize }));
   };
 
   // Thay đổi trang

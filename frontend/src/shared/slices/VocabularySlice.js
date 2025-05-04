@@ -54,14 +54,14 @@ export const createVocabularyThunk = createAsyncThunk(
 export const updateVocabularyThunk = createAsyncThunk(
   "vocabulary/updateVocabulary",
   async (
-    { listId, word, definition, example },
+    { listId, id, word, definition, example },
     { getState, rejectWithValue }
   ) => {
     try {
       const state = getState();
       const accessToken =
         state.auth.accessToken || localStorage.getItem("accessToken");
-      const data = await updateVocabulary(accessToken, listId, {
+      const data = await updateVocabulary(accessToken, listId, id, {
         word,
         definition,
         example,
@@ -134,9 +134,11 @@ const vocabularySlice = createSlice({
       })
       .addCase(updateVocabularyThunk.fulfilled, (state, action) => {
         const updated = action.payload;
-        const index = state.items.findIndex((item) => item.id === updated.id);
+        const index = state.currentPageVocabulary.findIndex(
+          (item) => item.id === updated.id
+        );
         if (index !== -1) {
-          state.items[index] = updated;
+          state.currentPageVocabulary[index] = updated;
         }
       })
       .addCase(updateVocabularyThunk.rejected, (state, action) => {
