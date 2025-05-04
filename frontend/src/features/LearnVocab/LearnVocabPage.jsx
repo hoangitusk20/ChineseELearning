@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import CreateBox from "./Component/CreateBox";
+import CreateBox from "./Component/VocabList/CreateBox";
 // import vocabularyLists from "@/shared/Mockdata/VocabularyList";
-import ListBox from "./Component/ListBox";
-import Modal from "./Component/Modal";
+import ListBox from "./Component/VocabList/ListBox";
+import Modal from "./Component/VocabList/Modal";
 import { useAddVocabModal } from "./hooks/useAddVocabModal";
 import { useDispatch, useSelector } from "react-redux";
 import {

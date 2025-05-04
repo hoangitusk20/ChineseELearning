@@ -93,7 +93,7 @@ const vocabularySlice = createSlice({
   initialState: {
     currentPageVocabulary: [], // Dữ liệu danh sách
     totalVocabulary: 0,
-    loading: false, // Trạng thái loading
+    loading: true, // Trạng thái loading
     error: null, // Lỗi nếu có
   },
   reducers: {},
