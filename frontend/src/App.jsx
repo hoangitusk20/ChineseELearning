@@ -14,6 +14,7 @@ import ProfilePage from "./features/Profile/ProfilePage";
 import LearnVocabPage from "./features/LearnVocab/LearnVocabPage";
 import VocabularyPage from "./features/LearnVocab/VocabularyPage";
 import NotFoundPage from "./shared/NotFoundPage";
+import DemoPage from "./shared/DemoPage";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
 
           <Route element={<MainLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="demo" element={<DemoPage />} />
+
             <Route
               path="/create-story-from-topic"
               element={
