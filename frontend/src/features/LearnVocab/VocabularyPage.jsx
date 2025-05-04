@@ -7,36 +7,41 @@ import mockVocabularyData from "../../shared/Mockdata/Vocabularies";
 import AddVocabularyForm from "./Component/Vocab/AddVocabularyForm";
 import VocabularyCard from "./Component/Vocab/VocabularyCard";
 import Pagination from "./Component/Vocab/Pagination";
+import { formatDate } from "@/shared/Utils";
 
 const VocabularyPage = () => {
   const { id: listId } = useParams(); // id từ URL
-
   const dispatch = useDispatch();
   const pageSize = 10;
 
-  const { lists } = useSelector((state) => state.vocabularyList);
-  const thisList = lists.find((list) => list.id == listId);
+  const { currentListInfo: listInfo } = useSelector(
+    (state) => state.vocabulary
+  );
 
   const [vocabularies, setVocabularies] = useState(
     mockVocabularyData.storyList
   );
 
+  const {
+    currentPageVocabulary: currentVocabularies,
+    loading,
+    totalVocabulary,
+  } = useSelector((state) => state.vocabulary);
+
   // Tính toán số trang
 
-  const [totalCount, setTotalCount] = useState(mockVocabularyData.totalCount);
+  // const [totalCount, setTotalCount] = useState(mockVocabularyData.totalCount);
+  const [totalCount, setTotalCount] = useState(totalVocabulary);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
   const totalPages = Math.ceil(totalCount / itemsPerPage);
-
-  // Lấy danh sách từ vựng cho trang hiện tại
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalCount);
-  const currentVocabularies = vocabularies.slice(startIndex, endIndex);
 
-  const { currentPageVocabulary: vocabulary, loading } = useSelector(
-    (state) => state.vocabulary
-  );
+  // // Lấy danh sách từ vựng cho trang hiện tại
+
+  // const currentVocabularies = vocabularies.slice(startIndex, endIndex);
 
   useEffect(() => {
     if (listId) {
@@ -83,15 +88,17 @@ const VocabularyPage = () => {
     <>
       {loading ? (
         <p className="min-h-screen">Loading...</p>
-      ) : vocabulary.length === 0 ? (
+      ) : currentVocabularies.length === 0 ? (
         <NotFoundPage />
       ) : (
         <div className="container mx-auto px-4 py-8 max-w-6xl">
           <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
-            Quản Lý Từ Vựng Tiếng Trung
+            Danh sách từ vựng đã tạo
           </h1>
-          <p className="text-center p-2">Bộ từ vựng: {thisList?.name}</p>
-          <p className=""></p>
+          <p className="text-center pt-2">Bộ từ vựng: {listInfo?.name}</p>
+          <p className="text-center pb-2">
+            Ngày tạo: {formatDate(listInfo.createdAt, false)}
+          </p>
 
           {/* Form thêm từ vựng */}
           <AddVocabularyForm onAdd={handleAddVocabulary} />

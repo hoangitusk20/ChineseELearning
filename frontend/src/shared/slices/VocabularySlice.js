@@ -92,6 +92,7 @@ const vocabularySlice = createSlice({
   name: "vocabulary",
   initialState: {
     currentPageVocabulary: [], // Dữ liệu danh sách
+    currentListInfo: [],
     totalVocabulary: 0,
     loading: true, // Trạng thái loading
     error: null, // Lỗi nếu có
@@ -108,6 +109,7 @@ const vocabularySlice = createSlice({
         state.loading = false;
         state.currentPageVocabulary = action.payload.storyList; // Dữ liệu trả về từ server
         state.totalVocabulary = action.payload.totalCount;
+        state.currentListInfo = action.payload.listInfo;
       })
       .addCase(fetchAllVocabThunk.rejected, (state, action) => {
         state.loading = false;

@@ -1,4 +1,5 @@
-﻿using ChineseELearningRestfulAPI.Domain.Interfaces;
+﻿using ChineseELearningRestfulAPI.Application.UseCases.VocabularyLists;
+using ChineseELearningRestfulAPI.Domain.Interfaces;
 
 namespace ChineseELearningRestfulAPI.Application.UseCases.Vocabularies.GetAllVocabularyInList
 {
@@ -14,13 +15,15 @@ namespace ChineseELearningRestfulAPI.Application.UseCases.Vocabularies.GetAllVoc
 
         public async Task<GetVocabularyInListReponseDTO> ExecuteAsync(Guid listId, int page = 1, int pageSize = 20)
         {
+            var list = await _vocabularyListRepository.GetVocabularyListByIdAsync(listId);
             var vocabularyList = await _vocabularyRepository.GetVocabulariesByListIdAsync(listId, page, pageSize);
             int count = await _vocabularyListRepository.GetTotalVocabularyCountByListIdAsync(listId);
             var storyList =  vocabularyList.Select(v => new VocabularyDTO(v)).ToList();
             return new GetVocabularyInListReponseDTO
             {
                 totalCount = count,
-                storyList = storyList
+                storyList = storyList,
+                listInfo = new VocabularyListDTO(list)
             };
         }
     }

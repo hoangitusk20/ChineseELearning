@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Trash2, Edit, Save, X } from "lucide-react";
+import { formatDate } from "@/shared/Utils";
 
 const VocabularyCard = ({ vocabulary, onEdit, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -28,17 +29,6 @@ const VocabularyCard = ({ vocabulary, onEdit, onDelete }) => {
       example: vocabulary.example,
     });
     setIsEditing(false);
-  };
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("vi-VN", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
   };
 
   return (
